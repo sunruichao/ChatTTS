@@ -3,6 +3,7 @@
 [**English**](./README.md) | [**中文简体**](./README_CN.md)
 
 # For this fork
+结合 fastapi，在本地做一个服务。输入文本，生成音频并保存到本地。
 
 ## 本地安装使用
 

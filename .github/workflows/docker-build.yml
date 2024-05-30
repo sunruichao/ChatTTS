@@ -3,7 +3,7 @@ name: Build Docker chattts image
 on:
   push:
     branches:
-      - master
+      - docker
 
 jobs:
   build-and-push:

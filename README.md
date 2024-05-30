@@ -11,7 +11,7 @@ pip3 install requirements.txt
 uvicorn main:app --host "0.0.0.0" --port 8000
 ```
 
-## 使用示例
+### 本地使用示例
 
 ```bash
 curl -X POST -H 'content-type: application/json' -d\
@@ -24,6 +24,26 @@ curl -X POST -H 'content-type: application/json' -d\
 - `text`：要合成的文本
 - `output_path`：合成音频的保存路径
 - `seed`：音色种子，不同的种子会产生不同的音色，默认为 697（测试的一个比较好的音色）
+
+## Docker 部署
+```bash
+docker run -d --name chattts -p8000:8000  -v /tmp/audio:/audio ghcr.io/ultrasev/chattts:latest
+```
+注：
+1. `/tmp/audio`，本地存储音频文件的路径
+2. `/audio`，docker 里面存储音频文件的路径，这两个都可以更改。
+
+在使用时应该指定  `output_path = /audio/abc.wav`，以便把音频写到 `/audio` 下面。
+
+```bash
+curl -X POST -H 'content-type: application/json' -d\
+   '{"text":"朋友你好啊，今天天气怎么样 ？", "output_path": "/audio/abc.wav", "seed":232}' \
+    http://localhost:8000/tts
+```
+
+
+
+
 
 # For @yihong0618's fork
 

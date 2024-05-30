@@ -11,7 +11,7 @@ app = FastAPI()
 class TTSInput(pydantic.BaseModel):
     text: str
     output_path: str
-    seed: int = 42
+    seed: int = 697
 
 
 def get_chat_model() -> ChatTTS.Chat:
